@@ -8,8 +8,10 @@ import CardForm from './components/CardForm';
 import OtpForm from './components/OtpForm';
 import StatusMessage from './components/StatusMessage';
 
-// API base URL - uses environment variable or defaults to localhost
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+// API base URL - uses environment variable or nginx proxy
+// Production: Uses /api which nginx proxies to backend container
+// Development: Set REACT_APP_API_URL=http://localhost:8000
+const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 // Application states
 const STATES = {
